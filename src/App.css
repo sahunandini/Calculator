@@ -1,3 +1,7 @@
+* {
+  /* font-family: 'Anton', sans-serif; */
+  font-weight: bold;
+}
 /* Reset default margin and padding */
 body, h1, p, button {
   margin: 0;
@@ -10,11 +14,18 @@ body, h1, p, button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  width: 30%;
+  height: 60%;
   background-color: #f2f2f2;
+  /* Add box-shadow property */
+  box-shadow: -30px 20px 100px 10px rgba(244, 40, 88, 0.47), 30px -20px 100px -5px #6479ff;
+  /* Center the box on the screen */
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  border-radius: 6%;
 }
 
-/* Style the calculator container */
 .input-container {
   display: flex;
   flex-direction: column;
@@ -30,7 +41,7 @@ input {
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 button {
@@ -40,6 +51,11 @@ button {
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
+  font-weight: bolder;
+}
+
+.multi {
+  padding: 0.9rem 1rem 0.4rem 1rem;
 }
 
 button:hover {
@@ -50,14 +66,23 @@ button:hover {
 .error {
   color: red;
   margin-top: 1rem;
+  font-weight: 600;
+}
+
+.secondError {
+  color: black;
+  margin-top: 0.5rem;
+  font-size: large;
 }
 
 .success {
   color: blue;
   margin-top: 1rem;
+  font-weight: 600;
 }
 
 .result {
   color: black;
   margin-top: 0.5rem;
+  font-size: large;
 }

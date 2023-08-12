@@ -7,6 +7,7 @@ function App() {
   const [number2, setNumber2] = useState('');
   const [result, setResult] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [secondErrorMessage, setSecondErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState(''); 
 
   
@@ -14,14 +15,28 @@ function App() {
     const num1 = parseFloat(number1);
     const num2 = parseFloat(number2);
 
-    if (isNaN(num1) || isNaN(num2)) {
-      setErrorMessage('Please enter valid numbers.');
+    if (isNaN(num1) && isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 and Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num1)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 Cannot Be Empty');
       setSuccessMessage('');
       setResult('');
     } else {
       const sum = num1 + num2;
       setResult(sum);
       setErrorMessage('');
+      setSecondErrorMessage('');
       setSuccessMessage('Addition Successful!');
     }
   };
@@ -30,14 +45,28 @@ function App() {
     const num1 = parseFloat(number1);
     const num2 = parseFloat(number2);
   
-    if (isNaN(num1) || isNaN(num2)) {
-      setErrorMessage('Please enter valid numbers.');
+    if (isNaN(num1) && isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 and Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num1)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 Cannot Be Empty');
       setSuccessMessage('');
       setResult('');
     } else {
       const difference = num1 - num2;
       setResult(difference);
       setErrorMessage('');
+      setSecondErrorMessage('');
       setSuccessMessage('Subtraction Successful!');
     }
   };
@@ -46,14 +75,28 @@ function App() {
     const num1 = parseFloat(number1);
     const num2 = parseFloat(number2);
   
-    if (isNaN(num1) || isNaN(num2)) {
-      setErrorMessage('Please enter valid numbers.');
+    if (isNaN(num1) && isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 and Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num1)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 Cannot Be Empty');
       setSuccessMessage('');
       setResult('');
     } else {
       const product = num1 * num2;
       setResult(product);
       setErrorMessage('');
+      setSecondErrorMessage('');
       setSuccessMessage('Multiplication Successful!');
     }
   };
@@ -62,14 +105,28 @@ function App() {
     const num1 = parseFloat(number1);
     const num2 = parseFloat(number2);
   
-    if (isNaN(num1) || isNaN(num2) || num2 === 0) {
-      setErrorMessage('Please enter valid numbers and ensure the divisor is not zero.');
+    if (isNaN(num1) && isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 and Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num2)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num2 Cannot Be Empty');
+      setSuccessMessage('');
+      setResult('');
+    }
+    else if (isNaN(num1)) {
+      setErrorMessage('Error!');
+      setSecondErrorMessage('Num1 Cannot Be Empty');
       setSuccessMessage('');
       setResult('');
     } else {
       const quotient = num1 / num2;
       setResult(quotient);
       setErrorMessage('');
+      setSecondErrorMessage('');
       setSuccessMessage('Division Successful!');
     }
   };
@@ -95,10 +152,11 @@ function App() {
       <div className="buttons">
         <button onClick={add}>+</button>
         <button onClick={subtract}>-</button>
-        <button onClick={multiply}>*</button>
+        <button className='multi' onClick={multiply}>*</button>
         <button onClick={divide}>/</button>
       </div>
       {errorMessage && <p className="error">{errorMessage}</p>}
+      {secondErrorMessage && <p className="secondError">{secondErrorMessage}</p>}
       {successMessage && <p className="success">{successMessage}</p>}
       {result && <p className="result">Result: {result}</p>}
     </div>
